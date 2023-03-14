@@ -1,0 +1,51 @@
+$bcolor:white;
+
+@function sizex2 ($h1){
+    @return ($h1 * 2)
+}
+
+@function comp($col){
+    @return complement($col);
+}
+
+@function lightnessback($bgcol){
+    @if lightness($bgcol){
+        @return black;
+    }
+    @else{
+        @return white;
+    }
+}
+
+body{
+    background-color: $bcolor;
+    color:lightnessback($bcolor);
+}
+
+h1{
+    size: sizex2(10px);
+    color: comp(white);
+}
+
+@mixin buttonrad{
+    border-radius: 5px;
+}
+
+@mixin colgroup{
+    color: azure;
+    background-color: aqua;
+}
+
+p{
+    color: $bcolor;
+}
+
+h1 h2 h3 h4 h5 h6{
+    @include colgroup;
+}
+
+button{
+    @include buttonrad;
+}
+
+
